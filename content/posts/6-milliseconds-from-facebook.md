@@ -1,6 +1,6 @@
 ---
 date: '2025-04-07T12:00:14-05:00'
-draft: true
+draft: false
 title: '6 Milliseconds From Facebook'
 tags: ["ntp","latency"]
 ---
