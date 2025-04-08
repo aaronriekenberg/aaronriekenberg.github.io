@@ -2,7 +2,7 @@
 date: '2025-04-07T12:00:14-05:00'
 draft: false
 title: '6 Milliseconds From Facebook'
-tags: ["ntp","latency"]
+tags: ["ntp", "latency"]
 ---
 I use [chrony](https://chrony-project.org) to keep my home linux server synced with public NTP servers.
 
