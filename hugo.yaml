@@ -82,7 +82,7 @@ params:
     # - name: stackoverflow
     #   url: "https://stackoverflow.com"
     - name: github
-      url: "https://github.com/aaronriekenberg"
+      url: "https://github.com/aaronriekenberg/blog"
 
   # analytics:
   #   google:
