@@ -1,9 +1,3 @@
-baseURL: https://example.org/
-languageCode: en-us
-title: My New Hugo Site
-theme: ["PaperMod"]
-
-
 baseURL: "https://aaronriekenberg.github.io/blog/"
 title: "Aaron Riekenberg"
 # paginate: 5
@@ -14,7 +8,7 @@ buildDrafts: false
 buildFuture: false
 buildExpired: false
 
-googleAnalytics: UA-123-45
+# googleAnalytics: UA-123-45
 
 minify:
   disableXML: true
@@ -125,10 +119,13 @@ menu:
     #   name: categories
     #   url: /categories/
     #   weight: 10
+    - name: archives
+      url: /archives/
+      weight: 5
     - identifier: tags
       name: tags
       url: /tags/
-      weight: 20
+      weight: 10
     # - identifier: example
     #   name: example.org
     #   url: https://example.org
