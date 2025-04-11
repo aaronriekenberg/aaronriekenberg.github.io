@@ -1,6 +1,6 @@
 baseURL: "https://aaronriekenberg.github.io/blog/"
 title: "Aaron Riekenberg"
-# paginate: 5
+# paginate: 3
 theme: PaperMod
 
 enableRobotsTXT: true
