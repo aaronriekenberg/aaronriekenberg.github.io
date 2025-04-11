@@ -17,7 +17,7 @@ minify:
 params:
   env: production # to enable google analytics, opengraph, twitter-cards and schema.
   title: "Aaron Riekenberg"
-  description: "Thoughts on tech, software, and life."
+  description: "Thoughts on tech, IT, software"
   keywords: [Blog, Portfolio, PaperMod]
   author: Me
   # author: ["Me", "You"] # multiple authors
@@ -74,7 +74,10 @@ params:
   # home-info mode
   homeInfoParams:
     Title: "Hi there \U0001F44B"
-    Content: Welcome to my blog
+    Content: >
+      - Welcome to Aaron Riekenberg's blog
+
+      - Thoughts on tech, IT, software
 
   socialIcons:
     # - name: x
@@ -82,7 +85,9 @@ params:
     # - name: stackoverflow
     #   url: "https://stackoverflow.com"
     - name: github
-      url: "https://github.com/aaronriekenberg/blog"
+      url: "https://github.com/aaronriekenberg/blog/"
+    - name: linkedin
+      url: "https://www.linkedin.com/in/aaron-riekenberg-92a3394/"
 
   # analytics:
   #   google:
