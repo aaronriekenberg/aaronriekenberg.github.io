@@ -12,6 +12,7 @@ Let me count some ways:
 - Easy to understand minimal sytax
 - Great docoumentation
 - Go routines for concurrency
+  - Java Virtual threads are copying
 - One way to do things including networking and go routines
 - All functions are [one color](https://journal.stuffwithstuff.com/2015/02/01/what-color-is-your-function/)
 - High quality http client/server built in
