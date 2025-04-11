@@ -22,6 +22,6 @@ Let me count some ways:
 - Cross compilation
 - One way to write tests
 - Built in benchmarking
-- Crazy low memory usage with JVM
+- Crazy low memory usage compared with JVM
 - Crazy fast GC compared with JVM
   - https://go.dev/blog/ismmkeynote
