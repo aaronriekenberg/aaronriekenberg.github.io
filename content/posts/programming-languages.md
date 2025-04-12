@@ -8,6 +8,6 @@ A well-known [quote](https://www.stroustrup.com/quotes.html) from [Bjarne Strous
 
 > There are only two kinds of languages: the ones people complain about and the ones nobody uses.
 
-I can definitely understand the sentiment of this having experience with a number of popular and not-so-popular language in my career from C and C++ to Python, Java, Kotlin, Go, Rust, and even Ada.
+I can definitely understand the sentiment of this having experience with a number of popular and not-so-popular languages in my career from C and C++ to Python, Java, Kotlin, Go, Rust, and even Ada.
 
 To try something positive I am going to write about some points I like from my favorite languages, why I like them, and why I might choose to use one over another.
