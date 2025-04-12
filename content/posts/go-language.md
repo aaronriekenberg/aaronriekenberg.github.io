@@ -12,15 +12,15 @@ Let me count some ways:
 - Easy to understand minimal sytax
 - Great docoumentation
 - Go routines for concurrency
-  - Java Virtual threads are copying
+  - [Java Virtual threads](https://docs.oracle.com/en/java/javase/21/core/virtual-threads.html) are copying
 - One way to do things including networking and go routines
 - All functions are [one color](https://journal.stuffwithstuff.com/2015/02/01/what-color-is-your-function/)
 - High quality http client/server built in
-- Single file executable, static linking, no runtime dependencies
+- AOT compilation, single file executable, static linking, no runtime dependencies
 - Crazy fast builds
 - Go modules
 - Cross compilation
-- One way to write tests
+- One way to write tests/documentation/examples
 - Built in benchmarking
 - Crazy low memory usage compared with JVM
 - Crazy fast GC compared with JVM

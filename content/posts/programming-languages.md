@@ -2,7 +2,7 @@
 date: '2025-04-10T19:10:35-05:00'
 draft: false
 title: 'Programming Languages'
-tags: ["programming"]
+tags: ["programming", "quote"]
 ---
 A well-known [quote](https://www.stroustrup.com/quotes.html) from [Bjarne Stroustrup](https://en.wikipedia.org/wiki/Bjarne_Stroustrup) the creator of C++:
 
