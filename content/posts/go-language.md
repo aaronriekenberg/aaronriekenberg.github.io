@@ -12,7 +12,7 @@ Let me count some ways:
 - Easy to understand minimal sytax
 - Great docoumentation
 - Go routines for concurrency
-  - [Java Virtual threads](https://docs.oracle.com/en/java/javase/21/core/virtual-threads.html) are copying
+  - [Java Virtual threads](https://docs.oracle.com/en/java/javase/21/core/virtual-threads.html) are copying go
 - One way to do things including networking and go routines
 - All functions are [one color](https://journal.stuffwithstuff.com/2015/02/01/what-color-is-your-function/)
 - High quality http client/server built in
@@ -25,3 +25,6 @@ Let me count some ways:
 - Crazy low memory usage compared with JVM
 - Crazy fast GC compared with JVM
   - https://go.dev/blog/ismmkeynote
+    - Two <500 microsecond STW pauses per GC
+  - https://www.oracle.com/technical-resources/articles/java/g1gc.html
+    - Default max pause time 200 milliseconds
