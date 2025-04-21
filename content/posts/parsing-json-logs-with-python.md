@@ -51,7 +51,7 @@ for line in sys.stdin:
 
 Above reads and parses all lines from stdin so works nicely in a shell pipeline.  The output is easy to parse with grep/awk/sed, etc.
 
-Below is an example of spotting a bad guy looking for wordpresss sites:
+Below is an example of spotting a bad guy looking for wordpress sites:
 
 ```sh
 $ tail -1000 access.log | parse_logs.py | grep 'status=404' | grep wp
