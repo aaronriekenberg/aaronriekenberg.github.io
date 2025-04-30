@@ -8,7 +8,7 @@ It's 2025 and you find yourself using [Caddy](http://caddyserver.com) as the hom
 
 One nice feature of Caddy is [structured logging](https://caddyserver.com/docs/logging#structured-logs).  
 
-Caddy's access logs include **all** request/response headers and fields as newline-delimited JSON.  This is a bit mind-blowing coming from something like nginx or Apache's [Common Log Format](https://en.wikipedia.org/wiki/Common_Log_Format) that is 3 decades old.
+Caddy's access logs include **all** request/response headers and fields as newline-delimited JSON.  This is a bit mind-blowing coming from something like nginx or Apache's [Common Log Format](https://en.wikipedia.org/wiki/Common_Log_Format) from 3 decades ago.
 
 Structured logs are great when loaded into ELK to automatically parse and index fields.
 
@@ -20,7 +20,7 @@ But what to do at home where there is no ELK, and I want to know simple things l
 
 How to parse the wall of JSON documents?
 
-[jq](https://jqlang.org) is a great for extracting a single field from a JSON document.  But I find the syntax hard to understand and remember, also it's no help for timestamp parsing.
+[jq](https://jqlang.org) is a great for pretty priting or extracting a single field from a JSON document.  But I find the syntax hard to understand and remember especially for extracting multiple fields.
 
 We can do this with a few lines of Python.  These particular batteries are included in reasonably-modern python3, no extra packages needed:
 
