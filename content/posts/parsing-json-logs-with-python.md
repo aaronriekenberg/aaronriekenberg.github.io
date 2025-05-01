@@ -20,7 +20,7 @@ But what to do at home where there is no ELK, and I want to know simple things l
 
 How to parse the wall of JSON documents?
 
-[jq](https://jqlang.org) is a great for pretty priting or extracting a single field from a JSON document.  But I find the syntax hard to understand and remember especially for extracting multiple fields.
+[jq](https://jqlang.org) is a great for pretty printing or extracting a single field from a JSON document.  But I find the syntax hard to understand and remember especially for extracting multiple fields.
 
 We can do this with a few lines of Python.  These particular batteries are included in reasonably-modern python3, no extra packages needed:
 
