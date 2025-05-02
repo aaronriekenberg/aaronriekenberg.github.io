@@ -24,7 +24,7 @@ unsafe = true
 [params]
 author = "Aaron Riekenberg"
 # license = '<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA-4.0</a>'
-description = "Aaron Riekenbergs's blog"
+description = "Aaron Riekenberg's blog"
 keywords = "blog,developer,personal"
 info = ["Software Engineer", "Performance Enthusiast"]
 #avatarURL = "images/avatar.jpg"
