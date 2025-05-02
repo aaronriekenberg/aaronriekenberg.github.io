@@ -188,7 +188,7 @@ languageName = ":uk:"
 # url = "about/"
 
 [[languages.en.menu.main]]
-name = "Blog"
+name = "Posts"
 weight = 1
 url = "posts/"
 
