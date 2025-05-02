@@ -192,6 +192,11 @@ name = "Posts"
 weight = 1
 url = "posts/"
 
+[[languages.en.menu.main]]
+name = "Tags"
+weight = 2
+url = "tags/"
+
 # [[languages.en.menu.main]]
 # name = "Projects"
 # weight = 3
