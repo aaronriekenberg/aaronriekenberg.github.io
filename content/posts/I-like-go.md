@@ -14,7 +14,7 @@ Let me count some things I like:
 
 Go values simplicity and correctness, both for the language itself and its tooling.
 
-Unlike many other languages where the choices of build tools, networking, threading models, memory management, and event loops are up to the user, Go takes the opposite route.
+Unlike many other languages where choices of build tools, networking, threading models, memory management, and event loops are up to the user, Go takes the opposite route.
 
 Go has one simple, high-quality way to do things.
 
@@ -26,9 +26,9 @@ The idea of using goroutines as an asynchronous function might seem simple but i
 
 A developer can write simple code that looks like it blocks but it doesn't.  
 
-Go will automatically schedule and run goroutines on a small number of operating system threads.  It manages preemption and blocking for I/O or other resources automatically.
+Go will automatically schedule and run goroutines on a small number of operating system threads.  It manages [preemption](https://go.dev/doc/go1.14#runtime) and blocking on I/O or other resources automatically.
 
-Each goroutine starts with a tiny stack size that can grow as needed, so the memory usage of go programs tends to be extremely small.  1 to 2 orders of magnitude smaller memory footprint vs a similar JVM application is common.
+Each goroutine starts with a tiny stack size that can grow as needed, so the memory usage of go programs tends to be extremely small.  2 to 3 orders of magnitude smaller memory footprint vs a similar JVM application is common.
 
 Goroutines are the only way to do threading in the go language.  All goroutines are equal.  
 
@@ -48,7 +48,7 @@ Go is still adding to the standard library after many releases, some recent exam
 
 # Fast Runtime, Low Memory Usage
 
-Go is well optimized at runtime.
+Go is fast at runtime.
 
 Because it uses ahead of time (AOT) compilation there is no worry for just in time (JIT) compilation slowing things down, or requiring warmups which are common in the JVM world.
 
@@ -60,17 +60,17 @@ As of 2018 (7 years ago) Go's garbage collector has [2x 500 microsecond pauses](
 
 Because the JVM's pause times are big (200 milliseconds) a common tactic even for stateless applications is to use multiple GBs of heap space.  2-4GB might be considered small for high-performance JVM apps so the GC does not have to run often.  
 
-With go heap usage of 10-20 megabytes is common for a stateless application.
+With go heap usage in 10s of megabytes is common for a stateless application.
 
 # Go Modules
 
 Go has something like Gradle built-in to the language.  It manages dependency versions, transitive dependencies, and embedding version info to an app automatically.  
 
-Go modules do not rely on a central repository server like Gradle/Maven.  They take a simple approach of checking out code from a public code repo (e.g. github), building it locally, and caching the compiled library locally.
+Go modules do not rely on a central repository for build artifacts like Gradle or Maven.  They take a simple approach of checking out code from a repository (e.g. github), building it locally, and caching the compiled library locally.
 
 I find go modules defaults to be more sane than Gradle, for example with just one `go build` command I can build my app and produce an executable.  
 
-With Gradle we must worry which plugin to use (shadowjar? application? spring boot fatjar?) and arcane details like whether a jar's manifest file contains the correct main class name.  For libraries we must worry about complex processes to upload to private or public maven/gradle repositories.  None of this is needed in go.
+With Gradle applications we must worry which plugin to use (shadowjar? application? spring boot fatjar?) and arcane details like whether a jar's manifest file contains the correct main class name.  For libraries we must worry about complex processes to deploy to private or public maven/gradle repositories.  None of this is needed in go.
 
 In just 3 commands and a few milliseconds we can update go itself and all modules to their latest versions for a project, while respecting semver:
 
