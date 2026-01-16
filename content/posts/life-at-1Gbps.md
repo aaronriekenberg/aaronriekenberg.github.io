@@ -6,13 +6,13 @@ tags: ["internet", "speed"]
 ---
 Last summer we got 1Gbps internet access when [fiber finally came to our curb](https://en.wikipedia.org/wiki/Fiber_to_the_x).
 
-Symmetric 1Gbps up/down is a significant upgrade from the old 400/10Mbps cable connection for about the same cost.
+Symmetric 1Gbps down/up is a significant upgrade from the old 400/10Mbps cable connection for about the same cost.
 
 As a small test, I did the below download on my home linux box using [wcurl](https://curl.se/wcurl/).
 
 This downloads a 773 MiB ISO image file from the local Cloudlfare POP in MSP.
 
-Here the file was already cached at Cloudflare.  It downloads at 90.9 MiB per second over a single HTTP/2 TCP connection, this is finished in 9 seconds:
+Here the file was already cached at Cloudflare.  It downloads at 85.6 MiB per second over a single HTTP/2 TCP connection, this is finished in 9 seconds:
 
 ```
 $ wcurl --curl-options -v -O - https://cloudflare.cdn.openbsd.org/pub/OpenBSD/7.8/amd64/install78.iso  > /dev/null
@@ -23,6 +23,8 @@ $ wcurl --curl-options -v -O - https://cloudflare.cdn.openbsd.org/pub/OpenBSD/7.
 < cf-cache-status: HIT
 < cf-ray: 9b8e1ca62f05a1fa-MSP
 
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
 100  773M  100  773M    0     0  85.6M      0  0:00:09  0:00:09 --:--:-- 90.9M
 ```
 
