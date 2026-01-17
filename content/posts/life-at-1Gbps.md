@@ -14,8 +14,8 @@ This downloads a 773 MiB ISO image file from the local Cloudlfare POP in MSP.
 
 Here the file was already cached at Cloudflare.  It downloads at 85.6 MiB per second over a single HTTP/2 TCP connection, this is finished in 9 seconds:
 
-```
-$ wcurl --curl-options -v -O - https://cloudflare.cdn.openbsd.org/pub/OpenBSD/7.8/amd64/install78.iso  > /dev/null
+```bash
+$ wcurl --curl-options='-v' -O - https://cloudflare.cdn.openbsd.org/pub/OpenBSD/7.8/amd64/install78.iso > /dev/null
 
 < HTTP/2 200
 < content-length: 811106304
