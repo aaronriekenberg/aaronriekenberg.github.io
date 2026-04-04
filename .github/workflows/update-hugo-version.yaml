@@ -16,17 +16,17 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
 
-      - name: Update HUGO_VERSION in workflow
+      - name: Update Hugo version file
         id: bump
         run: |
           set -euo pipefail
 
-          workflow_file=".github/workflows/hugo.yaml"
-          current="$(grep -E '^\s*HUGO_VERSION:\s*' "$workflow_file" | head -n1 | sed -E 's/^\s*HUGO_VERSION:\s*//')"
+          version_file=".github/hugo-version.txt"
+          current="$(tr -d '[:space:]' < "$version_file")"
           latest="$(curl -fsSL https://api.github.com/repos/gohugoio/hugo/releases/latest | jq -r '.tag_name' | sed -E 's/^v//')"
 
           if [[ -z "$current" ]]; then
-            echo "Could not find HUGO_VERSION in $workflow_file" >&2
+            echo "Version file is empty: $version_file" >&2
             exit 1
           fi
 
@@ -45,7 +45,7 @@ jobs:
             exit 0
           fi
 
-          sed -i -E "s/^(\s*HUGO_VERSION:\s*).*/\1$latest/" "$workflow_file"
+          printf '%s\n' "$latest" > "$version_file"
 
           echo "up_to_date=false" >> "$GITHUB_OUTPUT"
           echo "current=$current" >> "$GITHUB_OUTPUT"
@@ -59,11 +59,11 @@ jobs:
           commit-message: "chore(ci): bump Hugo to ${{ steps.bump.outputs.latest }}"
           title: "chore(ci): bump Hugo to ${{ steps.bump.outputs.latest }}"
           body: |
-            Automated update of `HUGO_VERSION` in `.github/workflows/hugo.yaml`.
+            Automated update of Hugo version in `.github/hugo-version.txt`.
 
             - Previous version: `${{ steps.bump.outputs.current }}`
             - New version: `${{ steps.bump.outputs.latest }}`
           branch: chore/update-hugo-version
           delete-branch: true
           add-paths: |
-            .github/workflows/hugo.yaml
+            .github/hugo-version.txt
