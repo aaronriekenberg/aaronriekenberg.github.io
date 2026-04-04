@@ -2,7 +2,7 @@ name: Update Hugo version
 
 on:
   schedule:
-    - cron: "17 6 * * 1"
+    - cron: "17 6 * * 6" # Every Saturday at 6:17 AM
   workflow_dispatch:
 
 permissions:
