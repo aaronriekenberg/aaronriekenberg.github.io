@@ -53,7 +53,7 @@ jobs:
 
       - name: Create Pull Request
         if: steps.bump.outputs.up_to_date == 'false'
-        uses: peter-evans/create-pull-request@v7
+        uses: peter-evans/create-pull-request@v8
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           commit-message: "chore(ci): bump Hugo to ${{ steps.bump.outputs.latest }}"
