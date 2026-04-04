@@ -1,0 +1,69 @@
+name: Update Hugo version
+
+on:
+  schedule:
+    - cron: "17 6 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  update-hugo-version:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Update HUGO_VERSION in workflow
+        id: bump
+        run: |
+          set -euo pipefail
+
+          workflow_file=".github/workflows/hugo.yaml"
+          current="$(grep -E '^\s*HUGO_VERSION:\s*' "$workflow_file" | head -n1 | sed -E 's/^\s*HUGO_VERSION:\s*//')"
+          latest="$(curl -fsSL https://api.github.com/repos/gohugoio/hugo/releases/latest | jq -r '.tag_name' | sed -E 's/^v//')"
+
+          if [[ -z "$current" ]]; then
+            echo "Could not find HUGO_VERSION in $workflow_file" >&2
+            exit 1
+          fi
+
+          if [[ -z "$latest" || "$latest" == "null" ]]; then
+            echo "Could not determine latest Hugo version" >&2
+            exit 1
+          fi
+
+          echo "Current Hugo version: $current"
+          echo "Latest Hugo version:  $latest"
+
+          if [[ "$current" == "$latest" ]]; then
+            echo "up_to_date=true" >> "$GITHUB_OUTPUT"
+            echo "current=$current" >> "$GITHUB_OUTPUT"
+            echo "latest=$latest" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          sed -i -E "s/^(\s*HUGO_VERSION:\s*).*/\1$latest/" "$workflow_file"
+
+          echo "up_to_date=false" >> "$GITHUB_OUTPUT"
+          echo "current=$current" >> "$GITHUB_OUTPUT"
+          echo "latest=$latest" >> "$GITHUB_OUTPUT"
+
+      - name: Create Pull Request
+        if: steps.bump.outputs.up_to_date == 'false'
+        uses: peter-evans/create-pull-request@v7
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "chore(ci): bump Hugo to ${{ steps.bump.outputs.latest }}"
+          title: "chore(ci): bump Hugo to ${{ steps.bump.outputs.latest }}"
+          body: |
+            Automated update of `HUGO_VERSION` in `.github/workflows/hugo.yaml`.
+
+            - Previous version: `${{ steps.bump.outputs.current }}`
+            - New version: `${{ steps.bump.outputs.latest }}`
+          branch: chore/update-hugo-version
+          delete-branch: true
+          add-paths: |
+            .github/workflows/hugo.yaml
